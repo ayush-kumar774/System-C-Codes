@@ -10,21 +10,21 @@ void tester::drive_test()
 
     log_msg("Starting test");
     //------------------------
+    // Testcase 1
+    /*check_output_port();*/
+    resetDUT();
+    dut_in1_driver.write(1);
+    dut_in2_driver.write(0);
+    wait(5, SC_NS);
+    log_msg("output port for testcase 1 (1, 0) ");
+    check_output_port();
 
-    // Testcase 1 (0, 0 => 0)
+    // Testcase 2 
     //resetDUT();
     dut_in1_driver.write(0);
     dut_in2_driver.write(0);
     wait(5, SC_NS);
-    log_msg("output port");
-    check_output_port();
-
-    // Testcase 2 (1, 0 => 0)
-    //resetDUT();
-    dut_in1_driver.write(1);
-    dut_in2_driver.write(0);
-    wait(5, SC_NS);
-    log_msg("output port");
+    log_msg("output port for testcase 2 (0, 0) ");
     check_output_port();
 
     //sc_stop();
@@ -34,7 +34,7 @@ void tester::drive_test()
     dut_in1_driver.write(0);
     dut_in2_driver.write(1);
     wait(5, SC_NS);
-    log_msg("output port");
+    log_msg("output port for testcase 3 (0, 1) ");
     check_output_port();
 
     // Testcase 4 (1, 1 => 1)
@@ -42,7 +42,7 @@ void tester::drive_test()
     dut_in1_driver.write(1);
     dut_in2_driver.write(1);
     wait(5, SC_NS);
-    log_msg("output port");
+    log_msg("output port for testcase 4 (1, 1) ");
     check_output_port();
 
     log_msg("Ending test");

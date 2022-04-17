@@ -3,9 +3,33 @@
 #include <systemc>
 #include "mydesign.h"
 #include "tester.h"
+#include "nandGateDesign.h"
 
 int sc_main(int argc, char* argv[])
 {
+	//---------------------- NAND GATE SIMULATION CODE -------------------------------
+	/*nand_gate* dut = new nand_gate("dut");
+	tester* test = new tester("tester");
+
+	sc_signal<bool> connection1;
+	sc_signal<bool> connection2;
+	sc_signal<bool> connection3;
+
+	dut->input1(connection1);
+	dut->input2(connection2);
+	dut->output(connection3);
+
+	test->dut_in1_driver(connection1);
+	test->dut_in2_driver(connection2);
+	test->dut_out_observer(connection3);
+
+	sc_core::sc_start();
+	delete test;
+	delete dut;
+	return 0;*/
+	//--------------- NAND GATE SIMULATION CODE ENDS HERE ------------------------------------
+
+	//------------------------ AND GATE SIMULATION CODE STARTS -------------------------------
 	and_gate* dut = new and_gate("dut");
 	tester* tt = new tester("tester");
 
@@ -36,6 +60,7 @@ int sc_main(int argc, char* argv[])
 	delete dut;
 	//close_vcd_trace_file(file);
 	return 0;
+	//---------------- AND GATE SIMULATION CODE ENDS HERE ------------------------------------
 }
 //// All systemc modules should include systemc.h header file
 //
